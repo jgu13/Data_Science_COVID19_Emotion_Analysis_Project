@@ -81,7 +81,7 @@ def get_stream(set):
                 response.status_code, response.text
             )
         )
-    with open(os.path.join(os.path.dirname(__file__), "data", "streamed_data2.json"), 'a+') as f:
+    with open(os.path.join(os.path.dirname(__file__), "../data", "streamed_data2.json"), 'a+') as f:
         f.write('[')
         for response_line in response.iter_lines():
             if response_line:
