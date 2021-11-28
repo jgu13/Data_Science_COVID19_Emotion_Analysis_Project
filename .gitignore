@@ -1,0 +1,4 @@
+#ignore API_key_secret file
+API_key_secrets.txt
+data/streamed_data.json
+filtered_data.csv
