@@ -32,6 +32,7 @@ def location_filter(locations):
             if pattern.search(location) is not None:
                 return True
     return False
-sample = df[df['user_locations'].apply(location_filter)].sample(frac=0.55)
-output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "filtered_data.csv")
-sample.to_csv(path_or_buf=output_path, sep=',', columns=['text'], index=False)
+# sample = df[df['user_locations'].apply(location_filter)].sample(frac=0.55)
+output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "complete_filtered_data.csv")
+# sample.to_csv(path_or_buf=output_path, sep=',', columns=['text'], index=False)
+df.to_csv(path_or_buf=output_path, sep=',', columns=['text'], index=False)
