@@ -73,13 +73,13 @@ def main(tweet_file):
 
     # stores the number of positive/negative/neutral tweets for each category
     sentiments_count = {
-        'covid/pandemic': {'p': 0, 'n': 0, 'r': 0},
-        'economy': {'p': 0, 'n': 0, 'r': 0},
-        'government': {'p': 0, 'n': 0, 'r': 0},
-        'movement': {'p': 0, 'n': 0, 'r': 0},
-        'precaution': {'p': 0, 'n': 0, 'r': 0},
-        'vaccine': {'p': 0, 'n': 0, 'r': 0},
-        'variant': {'p': 0, 'n': 0, 'r': 0}
+        'covid/pandemic': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'economy': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'government': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'movement': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'precaution': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'vaccine': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'variant': {'positive': 0, 'negative': 0, 'neutral': 0}
     }
 
     tweets = pd.read_csv(tweet_file, encoding='iso-8859-1')
