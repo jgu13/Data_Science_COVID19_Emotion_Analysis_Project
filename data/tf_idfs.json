@@ -1,0 +1,98 @@
+{
+    "covid/pandemic": [
+        "active",
+        "premature",
+        "death",
+        "airborne",
+        "form",
+        "toxic",
+        "surface",
+        "ppl",
+        "nope",
+        "nanocyn"
+    ],
+    "economy": [
+        "economy",
+        "slavery",
+        "money",
+        "taxes",
+        "spending",
+        "rich",
+        "impossible",
+        "pay",
+        "living",
+        "friends"
+    ],
+    "government": [
+        "governments",
+        "individuals",
+        "trust",
+        "government",
+        "risk",
+        "protect",
+        "poor",
+        "pfizer",
+        "citizens",
+        "china"
+    ],
+    "movement": [
+        "pcr",
+        "crossings",
+        "negative",
+        "status",
+        "return",
+        "flying",
+        "border",
+        "result",
+        "christmas",
+        "asylum"
+    ],
+    "others": [
+        "mind",
+        "difficult",
+        "look",
+        "act",
+        "makes",
+        "situation",
+        "shot",
+        "mine",
+        "despite",
+        "decent"
+    ],
+    "precaution": [
+        "masks",
+        "mask",
+        "mandates",
+        "low",
+        "wear",
+        "rates",
+        "france",
+        "measures",
+        "rules",
+        "protocols"
+    ],
+    "vaccine": [
+        "covaxin",
+        "dose",
+        "booster",
+        "mrna",
+        "vaccines",
+        "vaccine",
+        "shot",
+        "moderna",
+        "vaccinated",
+        "rates"
+    ],
+    "variant": [
+        "delta",
+        "omicron",
+        "variants",
+        "variant",
+        "virus",
+        "flights",
+        "help",
+        "reported",
+        "patients",
+        "flying"
+    ]
+}
