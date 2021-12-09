@@ -1,0 +1,37 @@
+{
+	"vaccine": {
+		"positive": 0.0,
+		"negative": 50.0,
+		"neutral": 50.0
+	},
+	"economy": {
+		"positive": 0.0,
+		"negative": 100.0,
+		"neutral": 0.0
+	},
+	"variant": {
+		"positive": 0.0,
+		"negative": 100.0,
+		"neutral": 0.0
+	},
+	"covid/pandemic": {
+		"positive": 0.0,
+		"negative": 100.0,
+		"neutral": 0.0
+	},
+	"movement": {
+		"positive": 100.0,
+		"negative": 0.0,
+		"neutral": 0.0
+	},
+	"government": {
+		"positive": 0.0,
+		"negative": 0.0,
+		"neutral": 100.0
+	},
+	"precaution": {
+		"positive": 0.0,
+		"negative": 100.0,
+		"neutral": 0.0
+	}
+}
