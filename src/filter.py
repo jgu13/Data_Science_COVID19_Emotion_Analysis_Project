@@ -5,20 +5,20 @@ import random
 import re
 
 
-with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "streamed_data2.json"), mode="r") as f:
+with open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "streamed_data3.json"), mode="r") as f:
     df = pd.DataFrame(json.load(f)['data'])
 
 places = ["Canada", "Ottawa",
-            "Alberta", "Edmonton",
-            "British Columbia", "Victoria",
+            "Alberta", "Edmonton", "Calgary",
+            "British Columbia", "Victoria", "Vancouver",
             "Manitoba", "Winnipeg",
             "New Brunswick", "Fredericton",
             "Newfoundland", "Labrador", "St. John's",
             "Nova Scotia", "Halifax",
-            "Ontario", "Toronto",
+            "Ontario", "Toronto", "Hamilton", "Windsor", "Mississauga", "Kingston", "Kitchener", "Sudbury", "Waterloo", "waterloo",
             "Prince Edward Island", "Charlottetown",
-            "Quebec", "Quebec City", "Montreal",
-            "Saskatchewan", "Regina",
+            "Québec", "Québec City", "Montréal",
+            "Saskatchewan", "Regina", "Saskatoon"
             "Northwest Territories", "Yellowknife",
             "Nunavut", "Iqaluit",
             "Yukon", "Whitehorse",
@@ -32,7 +32,7 @@ def location_filter(locations):
             if pattern.search(location) is not None:
                 return True
     return False
-# sample = df[df['user_locations'].apply(location_filter)].sample(frac=0.55)
-output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "complete_filtered_data.csv")
+filtered = df[df['user_locations'].apply(location_filter)]
+output_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "complete_filtered_data2.csv")
 # sample.to_csv(path_or_buf=output_path, sep=',', columns=['text'], index=False)
-df.to_csv(path_or_buf=output_path, sep=',', columns=['text'], index=False)
+filtered.to_csv(path_or_buf=output_path, sep=',', columns=['text'], index=False)

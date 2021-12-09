@@ -57,7 +57,7 @@ def delete_all_rules(rules):
 def set_rules(delete):
     # You can adjust the rules if needed
     sample_rules = [
-        {"value": "(-is:retweet) (covid OR covid-19 OR vaccination OR vaccine OR Pfizer OR Moderna OR (Johnson%26Johnson vaccine)) -Trump -news -Global -CBC -has:links -has:mentions lang:en (Canada OR Canadian)"},
+        {"value": "(-is:retweet) (covid OR covid-19 OR vaccination OR vaccine OR Pfizer OR Moderna OR (Johnson%26Johnson vaccine)) -Trump -Globalnews -CBC -has:links lang:en (Canada OR Canadian)"},
     ]
     payload = {"add": sample_rules}
     response = requests.post(
@@ -97,7 +97,7 @@ def run_threads(duration):
         print("All threads finished.")
 
 def get_stream(response):
-    with open(os.path.join(os.path.dirname(__file__), "../data", "streamed_data3.json"), 'wb') as f:
+    with open(os.path.join(os.path.dirname(__file__), "../data", "streamed_data3.json"), 'ab') as f:
         f.write(bytes('[', 'utf-8'))
         for response_line in response.iter_lines():
             if response_line:
@@ -135,7 +135,7 @@ def main():
     rules = get_rules()
     delete = delete_all_rules(rules)
     set = set_rules(delete)
-    run_threads(duration=1)  # duration passed in hours
+    run_threads(duration=12)  # duration passed in hours
 
 if __name__ == "__main__":
     main()
