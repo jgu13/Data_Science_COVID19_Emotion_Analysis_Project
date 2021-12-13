@@ -12,13 +12,13 @@ def process_tweet(str, stopwords):
     str = str.casefold()
 
     # uses the punctuation from assignment 8: we could modify it if it isn't working well
-    punctuation = ['(', ')', '[', ']', ',', '-', '.', '?', '!', ':', ';', '#', '&']
+    punctuation = ['(', ')', '[', ']', ',', '-', '.', '?', '!', ':', ';', '&']
     for char in punctuation:
         str = str.replace(char, ' ')
     words = str.split()
     for word in words:
         # removes common words and mentions ("@username")
-        if word in stopwords or word[0] == '@':
+        if word in stopwords or word[0] == '@' or word[0] == '#':
             continue
         if word.isalpha():
             output.append(word)
@@ -73,14 +73,13 @@ def main(tweet_file):
 
     # stores the number of positive/negative/neutral tweets for each category
     sentiments_count = {
-        'covid/pandemic': {'p': 0, 'n': 0, 'r': 0},
-        'economy': {'p': 0, 'n': 0, 'r': 0},
-        'government': {'p': 0, 'n': 0, 'r': 0},
-        'movement': {'p': 0, 'n': 0, 'r': 0},
-        'others': {'p': 0, 'n': 0, 'r': 0},
-        'precaution': {'p': 0, 'n': 0, 'r': 0},
-        'vaccine': {'p': 0, 'n': 0, 'r': 0},
-        'variant': {'p': 0, 'n': 0, 'r': 0}
+        'covid/pandemic': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'economy': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'government': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'movement': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'precaution': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'vaccine': {'positive': 0, 'negative': 0, 'neutral': 0},
+        'variant': {'positive': 0, 'negative': 0, 'neutral': 0}
     }
 
     tweets = pd.read_csv(tweet_file, encoding='iso-8859-1')
@@ -89,11 +88,9 @@ def main(tweet_file):
         if label in label_count:
             # this could be used to calculate sentiment numbers once annotations are done
             # or
-            '''
             if label != 'others':
                 sentiment = tweets.loc[index, 'Sentiment'].casefold()
                 sentiments_count[label][sentiment] += 1
-            '''
 
             words = tweets.loc[index, 'text']
             for word in process_tweet(words, stopwords):
@@ -102,6 +99,13 @@ def main(tweet_file):
 
     # removes words that aren't used at least 5 (can change if necessary) times in total
     remove_rares(total_count, label_count, 5)
+
+    # get percentage
+    for k, d in sentiments_count.items():
+        count_sum = sum(d.values())
+        sentiments_count[k]['positive'] = round((sentiments_count[k]['positive'] * 100) / count_sum, 2)
+        sentiments_count[k]['negative'] = round((sentiments_count[k]['negative'] * 100) / count_sum, 2)
+        sentiments_count[k]['neutral'] = round((sentiments_count[k]['neutral'] * 100) / count_sum, 2)
 
     return label_count, sentiments_count
 

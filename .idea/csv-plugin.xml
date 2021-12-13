@@ -3,14 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\data\complete_filtered_data.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\complete_filtered_data2.csv">
+        <entry key="\data\complete_filtered_data_modified.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
@@ -18,13 +11,6 @@
           </value>
         </entry>
         <entry key="\data\filtered_data.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="\data\test_sentiment.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
