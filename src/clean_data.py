@@ -88,9 +88,9 @@ def main(tweet_file):
         if label in label_count:
             # this could be used to calculate sentiment numbers once annotations are done
             # or
-            # if label != 'others':
-            #     sentiment = tweets.loc[index, 'Sentiment'].casefold()
-            #     sentiments_count[label][sentiment] += 1
+            if label != 'others':
+                sentiment = tweets.loc[index, 'Sentiment'].casefold()
+                sentiments_count[label][sentiment] += 1
 
             words = tweets.loc[index, 'text']
             for word in process_tweet(words, stopwords):
@@ -100,12 +100,12 @@ def main(tweet_file):
     # removes words that aren't used at least 5 (can change if necessary) times in total
     remove_rares(total_count, label_count, 5)
 
-    # # We can get percentage too
-    # for k, d in sentiments_count.items():
-    #     count_sum = sum(d.values())
-    #     sentiments_count[k]['p'] = round((sentiments_count[k]['p'] * 100) / count_sum, 2)
-    #     sentiments_count[k]['n'] = round((sentiments_count[k]['n'] * 100) / count_sum, 2)
-    #     sentiments_count[k]['r'] = round((sentiments_count[k]['r'] * 100) / count_sum, 2)
+    # get percentage
+    for k, d in sentiments_count.items():
+        count_sum = sum(d.values())
+        sentiments_count[k]['positive'] = round((sentiments_count[k]['positive'] * 100) / count_sum, 2)
+        sentiments_count[k]['negative'] = round((sentiments_count[k]['negative'] * 100) / count_sum, 2)
+        sentiments_count[k]['neutral'] = round((sentiments_count[k]['neutral'] * 100) / count_sum, 2)
 
     return label_count, sentiments_count
 
@@ -129,5 +129,5 @@ if __name__ == '__main__':
     script_path = os.path.abspath(os.path.dirname(__file__))
     with open(os.path.join(script_path, '..', 'data', 'label_words.json'), 'w') as f:
         json.dump(label_count, f, indent=4)
-    # with open(os.path.join(script_path, '..', 'data', 'label_sentiments.json'), 'w') as f:
-    #     json.dump(sentiments_count, f, indent=4)
+    with open(os.path.join(script_path, '..', 'data', 'label_sentiments.json'), 'w') as f:
+        json.dump(sentiments_count, f, indent=4)
