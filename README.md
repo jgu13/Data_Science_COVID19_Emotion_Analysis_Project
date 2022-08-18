@@ -1,6 +1,7 @@
 # Final_Project COVID option:
 
 All project details can be found in final project report.
+
 Characterize the "Canada" conversation (rather than Canadian).  
 Live streamed data using Twitter Stream API when filtering on user-defined locations.
 Restricted tweets to be from Canada by restricting user's locations of a tweet to be from only the following places:
