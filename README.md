@@ -1,6 +1,6 @@
 # Final_Project COVID option:
 
-All project details can be found in final project report.
+All project details can be found in Report.pdf file.
 
 Characterize the "Canada" conversation (rather than Canadian).  
 Live streamed data using Twitter Stream API when filtering on user-defined locations.
